@@ -54,7 +54,7 @@ public class MyListener implements MessageCreateListener {
                     if (getText(messageCreateEvent.getMessageContent())[0].equalsIgnoreCase("!boss")) {
 
                         EmbedBuilder embed = new EmbedBuilder()
-                                .setAuthor("@TIMERY ")
+                                .setAuthor("@timery ")
                                 .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");
                         messageCreateEvent.getChannel().sendMessage("@timery "+ getText(messageCreateEvent.getMessageContent())[2],embed);
                     }
