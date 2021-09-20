@@ -8,6 +8,8 @@ import org.javacord.api.listener.message.MessageCreateListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MyListener implements MessageCreateListener {
 
@@ -43,7 +45,6 @@ public class MyListener implements MessageCreateListener {
             new BOSS("KB","02:00")
             );
 
-
     @Override
     public void onMessageCreate(MessageCreateEvent messageCreateEvent) {
         TimerTask task = null;
@@ -51,10 +52,11 @@ public class MyListener implements MessageCreateListener {
              task = new TimerTask() {
                 public void run() {
                     if (getText(messageCreateEvent.getMessageContent())[0].equalsIgnoreCase("!boss")) {
+
                         EmbedBuilder embed = new EmbedBuilder()
                                 .setAuthor("@TIMERY ")
                                 .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");
-                        messageCreateEvent.getChannel().sendMessage("@TIMERY "+ getText(messageCreateEvent.getMessageContent())[2],embed);
+                        messageCreateEvent.getChannel().sendMessage("@timery "+ getText(messageCreateEvent.getMessageContent())[2],embed);
                     }
                 }
             };
