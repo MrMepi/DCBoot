@@ -53,7 +53,7 @@ public class MyListener implements MessageCreateListener {
                        /* EmbedBuilder embed = new EmbedBuilder()
                                 .setAuthor("@timery ")
                                 .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");*/
-                        messageCreateEvent.getChannel().sendMessage("<@&"+ "889548217295990807>"+ getText(messageCreateEvent.getMessageContent())[2]);
+                        messageCreateEvent.getChannel().sendMessage("<@&"+ "889548217295990807> "+ getText(messageCreateEvent.getMessageContent())[2]);
                     }
                 }
             };
@@ -89,8 +89,9 @@ public class MyListener implements MessageCreateListener {
 
                 timer.schedule(task, DateUtils.addMinutes(start, minut).getTime() - start.getTime());
                 if(getText(messageCreateEvent.getMessageContent()).length > 1) {
+                    Date at = DateUtils.addMinutes(start, (Integer.parseInt(m[1])));
                     messageCreateEvent.getChannel().sendMessage(getText(messageCreateEvent.getMessageContent())[2] + " "
-                            + (DateUtils.addMinutes(start, minut).getHours()) + ":" + DateUtils.addMinutes(start, (Integer.parseInt(m[1]))).getMinutes());
+                            + at.getHours() + ":" + (at.getMinutes() < 10 ? "0" + at.getMinutes() : at.getMinutes()));
                    /* messageCreateEvent.getChannel().sendMessage("<@&"+ "889548217295990807>" + getText(messageCreateEvent.getMessageContent())[2]);
                     messageCreateEvent.getChannel().sendMessage("@everyone  "+ getText(messageCreateEvent.getMessageContent())[2]);
                     messageCreateEvent.getChannel();*/
