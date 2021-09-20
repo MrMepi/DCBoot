@@ -56,7 +56,7 @@ public class MyListener implements MessageCreateListener {
                         EmbedBuilder embed = new EmbedBuilder()
                                 .setAuthor("@timery ")
                                 .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");
-                        messageCreateEvent.getChannel().sendMessage("@timery "+ getText(messageCreateEvent.getMessageContent())[2],embed);
+                        messageCreateEvent.getChannel().sendMessage("@timery  "+ getText(messageCreateEvent.getMessageContent())[2],embed);
                     }
                 }
             };
