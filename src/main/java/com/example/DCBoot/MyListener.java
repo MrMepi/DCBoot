@@ -1,15 +1,12 @@
 package com.example.DCBoot;
 
 import org.apache.commons.lang3.time.DateUtils;
-import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MyListener implements MessageCreateListener {
 
@@ -56,7 +53,7 @@ public class MyListener implements MessageCreateListener {
                        /* EmbedBuilder embed = new EmbedBuilder()
                                 .setAuthor("@timery ")
                                 .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");*/
-                        messageCreateEvent.getChannel().sendMessage("@timery  "+ getText(messageCreateEvent.getMessageContent())[2]);
+                        messageCreateEvent.getChannel().sendMessage("<@&"+ "889548217295990807>"+ getText(messageCreateEvent.getMessageContent())[2]);
                     }
                 }
             };
@@ -94,6 +91,9 @@ public class MyListener implements MessageCreateListener {
                 if(getText(messageCreateEvent.getMessageContent()).length > 1) {
                     messageCreateEvent.getChannel().sendMessage(getText(messageCreateEvent.getMessageContent())[2] + " "
                             + (DateUtils.addMinutes(start, minut).getHours()) + ":" + DateUtils.addMinutes(start, (Integer.parseInt(m[1]))).getMinutes());
+                   /* messageCreateEvent.getChannel().sendMessage("<@&"+ "889548217295990807>" + getText(messageCreateEvent.getMessageContent())[2]);
+                    messageCreateEvent.getChannel().sendMessage("@everyone  "+ getText(messageCreateEvent.getMessageContent())[2]);
+                    messageCreateEvent.getChannel();*/
                 }
             }
         }
