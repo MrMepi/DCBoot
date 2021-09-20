@@ -1,6 +1,7 @@
 package com.example.DCBoot;
 
 import org.apache.commons.lang3.time.DateUtils;
+import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
@@ -50,7 +51,10 @@ public class MyListener implements MessageCreateListener {
              task = new TimerTask() {
                 public void run() {
                     if (getText(messageCreateEvent.getMessageContent())[0].equalsIgnoreCase("!boss")) {
-                        messageCreateEvent.getChannel().sendMessage("@TIMERY "+ getText(messageCreateEvent.getMessageContent())[2]);
+                        EmbedBuilder embed = new EmbedBuilder()
+                                .setAuthor("@TIMERY ")
+                                .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");
+                        messageCreateEvent.getChannel().sendMessage("@TIMERY "+ getText(messageCreateEvent.getMessageContent())[2],embed);
                     }
                 }
             };
@@ -58,7 +62,9 @@ public class MyListener implements MessageCreateListener {
              task = new TimerTask() {
                 public void run() {
                     if (getText(messageCreateEvent.getMessageContent())[0].equalsIgnoreCase("!!boss")) {
-                        messageCreateEvent.getChannel().sendMessage("@everyone "+getText(messageCreateEvent.getMessageContent())[2]);
+                        EmbedBuilder embed = new EmbedBuilder()
+                                .setImage("https://raw.githubusercontent.com/MrMepi/DCBoot/main/cvubik.png");
+                        messageCreateEvent.getChannel().sendMessage("@everyone "+getText(messageCreateEvent.getMessageContent())[2],embed);
                     }
                 }
             };
@@ -85,7 +91,7 @@ public class MyListener implements MessageCreateListener {
                 timer.schedule(task, DateUtils.addMinutes(start, minut).getTime() - start.getTime());
                 if(getText(messageCreateEvent.getMessageContent()).length > 1) {
                     messageCreateEvent.getChannel().sendMessage(getText(messageCreateEvent.getMessageContent())[2] + " "
-                            + (DateUtils.addMinutes(start, minut).getHours() - 1) + ":" + DateUtils.addMinutes(start, minut).getMinutes());
+                            + (DateUtils.addMinutes(start, minut).getHours()) + ":" + DateUtils.addMinutes(start, minut).getMinutes());
                 }
             }
         }
