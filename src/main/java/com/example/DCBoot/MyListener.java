@@ -93,7 +93,7 @@ public class MyListener implements MessageCreateListener {
                 timer.schedule(task, DateUtils.addMinutes(start, minut).getTime() - start.getTime());
                 if(getText(messageCreateEvent.getMessageContent()).length > 1) {
                     messageCreateEvent.getChannel().sendMessage(getText(messageCreateEvent.getMessageContent())[2] + " "
-                            + (DateUtils.addMinutes(start, minut + 5).getHours()) + ":" + DateUtils.addMinutes(start, minut).getMinutes());
+                            + (DateUtils.addMinutes(start, minut).getHours()) + ":" + DateUtils.addMinutes(start, (Integer.parseInt(m[1]))).getMinutes());
                 }
             }
         }
