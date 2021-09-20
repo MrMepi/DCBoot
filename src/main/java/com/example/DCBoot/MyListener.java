@@ -77,7 +77,7 @@ public class MyListener implements MessageCreateListener {
         catch (Exception e) {
 
         }
-        if(!delay.isBlank() && timer != null) {
+        if(!delay.isEmpty() && timer != null) {
             String[] m = delay.split(":");
             int minut = (Integer.parseInt(m[0]) * 60) + (Integer.parseInt(m[1]) - 5);
             if (start != null) {
